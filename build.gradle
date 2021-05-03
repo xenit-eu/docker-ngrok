@@ -1,0 +1,10 @@
+plugins {
+    id 'eu.xenit.docker' version '5.3.0'
+}
+
+dockerBuild {
+    dockerFile = file('src/main/docker/Dockerfile') // or `createDockerFile.destFile`
+
+    repositories = ['hub.xenit.eu/public/ngrok', 'docker.io/xenit/ngrok']
+    tags = ['latest']
+}
