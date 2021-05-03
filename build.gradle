@@ -5,6 +5,13 @@ plugins {
 dockerBuild {
     dockerFile = file('src/main/docker/Dockerfile') // or `createDockerFile.destFile`
 
-    repositories = ['hub.xenit.eu/public/ngrok', 'docker.io/xenit/ngrok']
+    repositories = ['docker.io/xenit/ngrok']
     tags = ['latest']
+}
+
+docker {
+    registryCredentials {
+        username = System.getenv("DOCKER_USER")
+        password = System.getenv("DOCKER_PASSWORD")
+    }
 }
